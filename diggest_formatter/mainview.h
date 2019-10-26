@@ -39,6 +39,7 @@ private:
     void ExchangeData();
     void EchoReadData();
     void PopulateVacanciesList();
+    void ReadVacancies(std::string InputFile);
 };
 
 #endif // MAINVIEW_H

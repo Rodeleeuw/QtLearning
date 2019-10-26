@@ -1,14 +1,9 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2019-09-05T15:59:03
-#
-#-------------------------------------------------
 
-QT       += core gui network
+QT       += core
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Digest_formatter
+TARGET = test
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,16 +20,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainview.cpp
+    test_example.cpp
 
 HEADERS += \
-        mainview.h \
-        :w \
-    customdatatypes.hpp \
-    pch.hpp
-pch.hpp
+        catch2.hpp \
 
-FORMS += \
-        mainview.ui
 
 QMAKE_CXXFLAGS += -std=c++14

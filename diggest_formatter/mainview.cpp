@@ -1,6 +1,7 @@
 #include "mainview.h"
 #include "ui_mainview.h"
 #include "pch.hpp"
+#include "customdatatypes.hpp"
 
 // port to listen
 static int PORT_NUMBER = 23;
@@ -20,6 +21,7 @@ MainView::MainView(QWidget *parent) :
     ui->btnStopServer->setEnabled(false);
     // start the ExchangeData slot when the signal newConnection is emmitted
     connect(m_server, &QTcpServer::newConnection, this, &MainView::ExchangeData);
+    ReadVacancies("filehere");
 }
 
 /* Destructor */
@@ -48,8 +50,21 @@ void MainView::PopulateVacanciesList()
  * @param InputFile The input file in .xlxs extension
  * @return VacanciesList The extracted list of vacancies
  */
-void MainView::ReadVacancies()
+void MainView::ReadVacancies(std::string InputFile)
 {
+    std::cout<< "Opening file" << std::endl;
+    // Open the file
+    std::ifstream infile(InputFile);
+    // do a check
+    i:w
+
+
+
+        std::cout<< "File opened!" << std::endl;
+
+       // close the file
+        infile.close();
+
 
 }
 

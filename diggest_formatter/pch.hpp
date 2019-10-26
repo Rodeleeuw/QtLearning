@@ -4,5 +4,7 @@
 #include <QTcpServer>
 #include <QMessageBox>
 #include <QTcpSocket>
+#include <fstream>
+#include <iostream>
 
 #endif // PCH_HPP
