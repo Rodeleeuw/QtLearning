@@ -25,14 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainview.cpp
+    mainview.cpp
 
 HEADERS += \
         mainview.h \
-        :w \
-    customdatatypes.hpp \
-    pch.hpp
-pch.hpp
+        customdatatypes.hpp \
+        pch.hpp
 
 FORMS += \
         mainview.ui

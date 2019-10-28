@@ -20,7 +20,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    test_example.cpp
+    excel_operations_tests.cpp
 
 HEADERS += \
         catch2.hpp \

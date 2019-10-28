@@ -21,7 +21,7 @@ MainView::MainView(QWidget *parent) :
     ui->btnStopServer->setEnabled(false);
     // start the ExchangeData slot when the signal newConnection is emmitted
     connect(m_server, &QTcpServer::newConnection, this, &MainView::ExchangeData);
-    ReadVacancies("filehere");
+    ReadVacancies("/home/alex/digest_formatter_GUI/diggest_formatter/textfile.txt");
 }
 
 /* Destructor */
@@ -56,14 +56,18 @@ void MainView::ReadVacancies(std::string InputFile)
     // Open the file
     std::ifstream infile(InputFile);
     // do a check
-    i:w
+    if(!infile.is_open())
+    {
+        std::cout<< "The file was not opened correctly!\nTerminating\n" << std::endl;
+        // trow or end the app here
+        exit(-1);
+    }
 
+    std::cout<< "File opened correclty" << std::endl;
+    //parse file here
 
-
-        std::cout<< "File opened!" << std::endl;
-
-       // close the file
-        infile.close();
+   // close the file
+    infile.close();
 
 
 }
