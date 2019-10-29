@@ -2,6 +2,7 @@
 #include "ui_mainview.h"
 #include "pch.hpp"
 #include "customdatatypes.hpp"
+#include "ExcelReader.hpp"
 
 // port to listen
 static int PORT_NUMBER = 23;
@@ -18,7 +19,7 @@ MainView::MainView(QWidget *parent) :
 {
     ui->setupUi(this);
     // disable the stop button when the application start
-    ui->btnStopServer->setEnabled(false);
+    //ui->btnStopServer->setEnabled(false);
     // start the ExchangeData slot when the signal newConnection is emmitted
     connect(m_server, &QTcpServer::newConnection, this, &MainView::ExchangeData);
 }
@@ -34,42 +35,19 @@ MainView::~MainView()
 
 /* This method fills the list of the vacancies read
  * from the diggest.txt */
-void MainView::PopulateVacanciesList()
+void MainView::PopulateVacanciesList(std::string digest_file)
 {
-    //For the list
-    ui->listWidget->addItem("hello");
-    for(unsigned int i = 0; i < 10; i++)
+    // open and parse the request file
+    ExcelReader reader( digest_file );
+    reader.FillVacancies();
+    // Fill the list
+    for( auto& vacancy : reader.GetVacancies() )
     {
-        // Populate the list
-        ui->listWidget->addItem(QString::number(i) + "item");
+        // You need to convert the std string to QString first
+        ui->listWidget->addItem( QString::fromStdString( vacancy.name ) );
     }
 }
 
-/* Read the vacancies from exelfile.
- * @param InputFile The input file in .xlxs extension
- * @return VacanciesList The extracted list of vacancies
- */
-void MainView::ReadVacancies(std::string InputFile)
-{
-    std::cout<< "Opening file" << std::endl;
-    // Open the file
-    std::ifstream infile(InputFile);
-    // do a check
-    if(!infile.is_open())
-    {
-        std::cout<< "The file was not opened correctly!\nTerminating\n" << std::endl;
-        // trow or end the app here
-        exit(-1);
-    }
-
-    std::cout<< "File opened correclty" << std::endl;
-    //parse file here
-
-   // close the file
-    infile.close();
-
-
-}
 
 
 bool MainView::StartServer()
@@ -139,38 +117,15 @@ void MainView::EchoReadData()
 /* ------------------------- Call backs -------------------------- */
 void MainView::on_btnOpenFile_clicked()
 {
-   // when clicked open a new window
-   // select a file to open
-   // parse it
-   // fill the list
+   // when clicked open a new window to select a file, the path is set to the home path
+    QString digest_file = QFileDialog::getOpenFileName( this, "Open the reques file", QDir::homePath() );
+    // Fill the vacancies, convert to std string first
+    PopulateVacanciesList( digest_file.toStdString() );
 }
 
-// this was automatically created using "go to slot" in the design view
-void MainView::on_btnStartServer_clicked()
+
+void MainView::on_btnCloseApp_clicked()
 {
-    // call the server and check if it succeds
-    if(StartServer())
-    {
-        /* After the button is pressed, disable the start button and
-         * enable the stop button
-         */
-        ui->btnStartServer->setEnabled(false);
-        ui->btnStopServer->setEnabled(true);
-    }
+   // close the application
+    exit(0);
 }
-
-
-// this was automatically created using "go to slot" in the design view
-void MainView::on_btnStopServer_clicked()
-{
-    // called when the button is pressed
-    StopServer();
-
-    /* After the button is pressed, enable the start button and
-     * disable the stop button
-     */
-    ui->btnStartServer->setEnabled(true);
-    ui->btnStopServer->setEnabled(false);
-}
-
-

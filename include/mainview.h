@@ -20,11 +20,9 @@ public:
     ~MainView();
 
 private slots:
-    void on_btnStartServer_clicked();
-    void on_btnStopServer_clicked();
-
-
     void on_btnOpenFile_clicked();
+
+    void on_btnCloseApp_clicked();
 
 private:
     Ui::MainView *ui;
@@ -38,8 +36,7 @@ private:
     void StopServer();
     void ExchangeData();
     void EchoReadData();
-    void PopulateVacanciesList();
-    void ReadVacancies(std::string InputFile);
+    void PopulateVacanciesList(std::string digest_file );
 };
 
 #endif // MAINVIEW_H

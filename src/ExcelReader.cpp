@@ -62,3 +62,9 @@ void ExcelReader::PrintVacancies()
         std::cout << "Description : " << vacancy.description << std::endl;
     }
 }
+
+/* Return the vacancies obtained from the reading */
+std::vector<vacancy> ExcelReader::GetVacancies()
+{
+    return m_vacancies;
+}

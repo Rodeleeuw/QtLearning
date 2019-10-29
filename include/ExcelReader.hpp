@@ -20,7 +20,7 @@ public:
     void PrintRawSheet();
     void FillVacancies();
     void PrintVacancies();
-    // unsigned int GetNumVacancies();
+    std::vector<vacancy> GetVacancies();
 
 };
 
