@@ -7,4 +7,11 @@
 #include <fstream>
 #include <iostream>
 
+
+#include <vector>
+#include <array>
+#include <string>
+
+#include <xlnt/xlnt.hpp>
+
 #endif // PCH_HPP

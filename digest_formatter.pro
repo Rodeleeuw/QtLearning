@@ -1,15 +1,13 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2019-09-05T15:59:03
-#
-#-------------------------------------------------
-
 QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Digest_formatter
+TARGET = digest_formatter
 TEMPLATE = app
+INCLUDEPATH += $$PWD/include
+# DESTDIR = build
+# LIBS += -L"3rdparty/CatWhisperer/lib" -lxlnt
+LIBS += -lxlnt
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -24,15 +22,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-    mainview.cpp
+    src/main.cpp \
+    src/mainview.cpp \
+    src/ExcelReader.cpp
 
 HEADERS += \
-        mainview.h \
-        customdatatypes.hpp \
-        pch.hpp
+    include/customdatatypes.hpp \
+    include/mainview.h \
+    include/pch.hpp \
+    include/ExcelReader.hpp
 
 FORMS += \
-        mainview.ui
+    ui/mainview.ui
 
 QMAKE_CXXFLAGS += -std=c++14

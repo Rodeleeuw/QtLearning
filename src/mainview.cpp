@@ -21,7 +21,6 @@ MainView::MainView(QWidget *parent) :
     ui->btnStopServer->setEnabled(false);
     // start the ExchangeData slot when the signal newConnection is emmitted
     connect(m_server, &QTcpServer::newConnection, this, &MainView::ExchangeData);
-    ReadVacancies("/home/alex/digest_formatter_GUI/diggest_formatter/textfile.txt");
 }
 
 /* Destructor */
