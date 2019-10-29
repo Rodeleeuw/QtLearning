@@ -2,10 +2,6 @@
 #define PCH_HPP
 
 /* Qt headers */
-#include <QTcpServer>
-#include <QMessageBox>
-#include <QTcpSocket>
-
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QDir>

@@ -47,6 +47,9 @@ void ExcelReader::FillVacancies()
         // Append the data
         m_vacancies.emplace_back(temp);
     }
+
+    // TODO: Delete the header, which is in the first row
+
 }
 
 /* Print the vector with vacancies */

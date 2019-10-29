@@ -7,9 +7,6 @@ namespace Ui {
 class MainView;
 }
 
-// forward declaration of the classess used for the TCP connection
-class QTcpServer;
-class QTcpSocket;
 
 class MainView : public QMainWindow
 {
@@ -21,21 +18,12 @@ public:
 
 private slots:
     void on_btnOpenFile_clicked();
-
     void on_btnCloseApp_clicked();
 
 private:
     Ui::MainView *ui;
 
-    // pointer to a QTcpServer and socket variables
-    QTcpServer* m_server;
-    QTcpSocket* m_socket;
-
     // generated using the refactoring tool
-    bool StartServer();
-    void StopServer();
-    void ExchangeData();
-    void EchoReadData();
     void PopulateVacanciesList(std::string digest_file );
 };
 
