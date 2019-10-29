@@ -1,5 +1,4 @@
-#ifndef CUSTOMDATATYPES_HPP
-#define CUSTOMDATATYPES_HPP
+#pragma once
 
 #include "pch.hpp"
 struct vacancy
@@ -9,6 +8,6 @@ struct vacancy
     std::string date;
     std::string owner;
     std::string company;
+    unsigned int index;
 };
 
-#endif // CUSTOMDATATYPES_HPP

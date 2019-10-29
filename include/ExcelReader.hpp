@@ -8,7 +8,7 @@ class ExcelReader
 {
 private:
     unsigned int m_NumVacancies;
-    std::vector<vacancy> m_vacancies;
+    //std::vector<vacancy> m_vacancies;
     // work book
     xlnt::workbook m_wb;
     // work sheet
@@ -18,9 +18,9 @@ private:
 public:
     explicit ExcelReader(std::string filename);
     void PrintRawSheet();
-    void FillVacancies();
-    void PrintVacancies();
-    std::vector<vacancy> GetVacancies();
+    void FillVacancies(std::vector<vacancy> &vacancies);
+    void PrintVacancies(const std::vector<vacancy> &vacancies);
+    //std::vector<vacancy> GetVacancies();
 
 };
 

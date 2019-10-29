@@ -2,6 +2,7 @@
 #define MAINVIEW_H
 
 #include <QMainWindow>
+#include "customdatatypes.hpp"
 
 namespace Ui {
 class MainView;
@@ -22,9 +23,9 @@ private slots:
 
 private:
     Ui::MainView *ui;
+    std::vector<vacancy> m_vacancies;
 
-    // generated using the refactoring tool
-    void PopulateVacanciesList(std::string digest_file );
+    void PopulateVacanciesList( std::string digest_file );
 };
 
 #endif // MAINVIEW_H

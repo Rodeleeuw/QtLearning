@@ -27,11 +27,14 @@ void ExcelReader::PrintRawSheet()
     }
 }
 
-/* Fill the vector of opportunities */
-void ExcelReader::FillVacancies()
+/* Fill the vector of opportunities
+ * @param vacancies is a reference to a vector, created
+ * at the caller's side */
+void ExcelReader::FillVacancies(std::vector<vacancy> &vacancies)
 {
     // Temporal object to read the sheet
     vacancy temp;
+    unsigned int counter = 0;
 
     // row contains the columns of the sheet
     // fill the data
@@ -44,8 +47,11 @@ void ExcelReader::FillVacancies()
         temp.owner = row[3].to_string();
         temp.company = row[4].to_string();
 
+        counter++;
+        temp.index = counter;
+
         // Append the data
-        m_vacancies.emplace_back(temp);
+        vacancies.emplace_back(temp);
     }
 
     // TODO: Delete the header, which is in the first row
@@ -53,12 +59,12 @@ void ExcelReader::FillVacancies()
 }
 
 /* Print the vector with vacancies */
-void ExcelReader::PrintVacancies()
+void ExcelReader::PrintVacancies(const std::vector<vacancy> &vacancies)
 {
-    for( auto vacancy : m_vacancies)
+    for( auto& vacancy : vacancies)
     {
         std::cout << "\n\n================================" << std::endl;
-        std::cout << "Name: " << vacancy.name << std::endl;
+        std::cout << vacancy.index << ". Name: " << vacancy.name << std::endl;
         std::cout << "Company : " << vacancy.company << std::endl;
         std::cout << "Owner : " << vacancy.owner << std::endl;
         std::cout << "Creation date : " << vacancy.date << std::endl;
@@ -67,7 +73,7 @@ void ExcelReader::PrintVacancies()
 }
 
 /* Return the vacancies obtained from the reading */
-std::vector<vacancy> ExcelReader::GetVacancies()
-{
-    return m_vacancies;
-}
+// std::vector<vacancy> ExcelReader::GetVacancies()
+// {
+//     return m_vacancies;
+// }

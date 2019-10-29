@@ -30,14 +30,15 @@ void MainView::PopulateVacanciesList(std::string digest_file)
 {
     // open and parse the request file
     ExcelReader reader( digest_file );
-    reader.FillVacancies();
+    reader.FillVacancies(m_vacancies);
     // Fill the list
-    for( auto& vacancy : reader.GetVacancies() )
+    std::string indexed_name;
+    for( auto& vacancy : m_vacancies )
     {
+        indexed_name = std::to_string( vacancy.index ) + ". " + vacancy.name;
         // You need to convert the std string to QString first
-        ui->listWidget->addItem( QString::fromStdString( vacancy.name ) );
+        ui->listWidget->addItem( QString::fromStdString( indexed_name ) );
     }
-    ui->textBrowser->setText("hi there");
 }
 
 
