@@ -2,6 +2,7 @@ Current status:
 It compiles
 
 To do:
-- Check how to update the description when changing the selection
 - Remove the excel header from the vector
+- Add fields for company and owner
+- Add filters for list
 

@@ -21,6 +21,8 @@ private slots:
     void on_btnOpenFile_clicked();
     void on_btnCloseApp_clicked();
 
+    void on_listWidget_itemSelectionChanged();
+
 private:
     Ui::MainView *ui;
     std::vector<vacancy> m_vacancies;

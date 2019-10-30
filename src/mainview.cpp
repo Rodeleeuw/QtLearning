@@ -61,3 +61,15 @@ void MainView::on_btnCloseApp_clicked()
    // close the application
     exit(0);
 }
+
+void MainView::on_listWidget_itemSelectionChanged()
+{
+   int index = 0;
+   // Get the index of the current row
+   index = ui->listWidget->currentRow();
+   // Create the message to display
+   // QString text = QString::fromStdString( "Current index " + std::to_string( index ) );
+   QString vacancy_description = QString::fromStdString( m_vacancies[index].description );
+    // Update the Description field
+   ui->textBrowser->setText( vacancy_description );
+}
