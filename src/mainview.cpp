@@ -39,6 +39,9 @@ void MainView::PopulateVacanciesList(std::string digest_file)
         // You need to convert the std string to QString first
         ui->listWidget->addItem( QString::fromStdString( indexed_name ) );
     }
+
+    // Select the first item in the list
+    ui->listWidget->setCurrentRow(0);
 }
 
 
@@ -68,8 +71,9 @@ void MainView::on_listWidget_itemSelectionChanged()
    // Get the index of the current row
    index = ui->listWidget->currentRow();
    // Create the message to display
-   // QString text = QString::fromStdString( "Current index " + std::to_string( index ) );
    QString vacancy_description = QString::fromStdString( m_vacancies[index].description );
-    // Update the Description field
+    // Update the Description fields
    ui->textBrowser->setText( vacancy_description );
+   ui->label_company->setText( QString::fromStdString( "Company: " + m_vacancies[ index ].company ) );
+   ui->label_owner->setText( QString::fromStdString( "Contact: " + m_vacancies[ index ].owner ) );
 }

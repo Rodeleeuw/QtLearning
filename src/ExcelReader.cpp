@@ -35,11 +35,19 @@ void ExcelReader::FillVacancies(std::vector<vacancy> &vacancies)
     // Temporal object to read the sheet
     vacancy temp;
     unsigned int counter = 0;
+    bool first_run = true;
 
     // row contains the columns of the sheet
     // fill the data
     for( auto row : m_ws.rows( false ) )
     {
+        // Skip the header, this should be improved
+        if( first_run )
+        {
+            first_run = false;
+            continue;
+        }
+
         temp.name = row[0].to_string();
         temp.description = row[1].to_string();
         //TODO: correct the date!!
@@ -53,8 +61,6 @@ void ExcelReader::FillVacancies(std::vector<vacancy> &vacancies)
         // Append the data
         vacancies.emplace_back(temp);
     }
-
-    // TODO: Delete the header, which is in the first row
 
 }
 
