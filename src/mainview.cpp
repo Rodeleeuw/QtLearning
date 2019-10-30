@@ -13,6 +13,7 @@ MainView::MainView(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainView)
     //ui->btnStopServer->setEnabled(false);
     // start the ExchangeData slot when the signal newConnection is emmitted
     //connect(m_server, &QTcpServer::newConnection, this, &MainView::ExchangeData);
+
 }
 
 /* Destructor */

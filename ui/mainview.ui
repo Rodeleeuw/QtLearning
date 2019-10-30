@@ -17,7 +17,18 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Altran Request Viewer</string>
+   <string>Request Viewer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>:/logo/Altran_logo.svg</normalon>
+   </iconset>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>30</width>
+    <height>18</height>
+   </size>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -29,12 +40,21 @@
          <widget class="QPushButton" name="btnOpenFile">
           <property name="font">
            <font>
-            <weight>50</weight>
-            <bold>false</bold>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="text">
            <string>Open File</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../resources/icons.qrc">
+            <normaloff>:/icon/open.png</normaloff>:/icon/open.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>14</width>
+            <height>14</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -42,12 +62,24 @@
          <widget class="QPushButton" name="btnExtra">
           <property name="font">
            <font>
+            <pointsize>10</pointsize>
             <weight>50</weight>
             <bold>false</bold>
            </font>
           </property>
           <property name="text">
-           <string>Custom Search (under construction)</string>
+           <string>Filter List (under construction)</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normalon>:/icon/Filter_list.png</normalon>
+           </iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>14</width>
+            <height>14</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -55,12 +87,24 @@
          <widget class="QPushButton" name="btnCloseApp">
           <property name="font">
            <font>
+            <pointsize>10</pointsize>
             <weight>50</weight>
             <bold>false</bold>
            </font>
           </property>
           <property name="text">
            <string>Close Application</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normalon>:/icon/Close.png</normalon>
+           </iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>14</width>
+            <height>14</height>
+           </size>
           </property>
          </widget>
         </item>
@@ -192,6 +236,8 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="../resources/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -2,7 +2,11 @@ Current status:
 It compiles
 
 To do:
-- Remove the excel header from the vector
-- Add fields for company and owner
 - Add filters for list
+- Check when oppening invalid files
+- Rearrange the layout of the main view
+
+
+Extra:
+- Add menus( open, close, save to file, about, help )
 

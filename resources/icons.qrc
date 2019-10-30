@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>open-file.png</file>
+        <file>open.png</file>
+        <file>Close.png</file>
+        <file>Filter_list.png</file>
+    </qresource>
+    <qresource prefix="/logo">
+        <file>Altran_logo.svg</file>
+    </qresource>
+</RCC>

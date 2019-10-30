@@ -24,15 +24,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     src/main.cpp \
     src/mainview.cpp \
-    src/ExcelReader.cpp
+    src/ExcelReader.cpp \
 
 HEADERS += \
     include/customdatatypes.hpp \
     include/mainview.h \
     include/pch.hpp \
-    include/ExcelReader.hpp
+    include/ExcelReader.hpp \
 
 FORMS += \
     ui/mainview.ui
 
 QMAKE_CXXFLAGS += -std=c++14
+
+RESOURCES += \
+    resources/icons.qrc
