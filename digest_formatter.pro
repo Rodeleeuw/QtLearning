@@ -6,8 +6,9 @@ TARGET = digest_formatter
 TEMPLATE = app
 INCLUDEPATH += $$PWD/include
 # DESTDIR = build
-# LIBS += -L"3rdparty/CatWhisperer/lib" -lxlnt
+# LIBS += -L"libraries/" -llibxlnt
 LIBS += -lxlnt
+# PRE_TARGETDEPS += libraries/libxlnt.a
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
