@@ -1,8 +1,7 @@
-# digest_formatter_GUI
-This is a very simple GUI that parses the reques digest and display the vacancies using Qt.
-It is not really useful for the real world, but is meant  to be an exercise with QT.
-
+# Qt learning projects
+Contains projects/exercises used to practice and learn Qt
 
 Dependencies:
 - QT framework
-- The altran Request digest in excel format
+- Some examples need to have OpenGl installed. For Ubuntu install with 
+`sudo apt install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev`
